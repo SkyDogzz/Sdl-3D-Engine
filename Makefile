@@ -1,18 +1,22 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -O2
+CFLAGS = -Wall -Wextra -O2 -I$(SRC_DIR)
 LDFLAGS = -lSDL2
-TARGET = sdl_basic_program
-SRC = main.c debug.c timing.c sdl_utils.c
-OBJ = $(SRC:.c=.o)
+TARGET = bin/sdl_basic_program
+SRC_DIR = srcs
+OBJ_DIR = objs
+SRC = $(wildcard $(SRC_DIR)/*.c)
+OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 .PHONY: all clean fclean re
 
 all: $(TARGET)
 
 $(TARGET): $(OBJ)
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
-%.o: %.c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

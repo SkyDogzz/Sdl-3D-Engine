@@ -1,8 +1,8 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-#define SCREEN_WIDTH 640
-#define SCREEN_HEIGHT 480
+#define SCREEN_WIDTH 1280
+#define SCREEN_HEIGHT 720
 #define TARGET_FPS 60
 #define TARGET_FRAME_TIME (1000.0 / TARGET_FPS)
 

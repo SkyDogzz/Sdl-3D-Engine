@@ -1,3 +1,5 @@
-sdl_3d_engine
+# Ignore the bin folder
+/bin
 
-*.o
+# Ignore the objs folder
+/objs
